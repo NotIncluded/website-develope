@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Your Name - Portfolio</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <div class="header">
+        <div class="profile-container">
+            <img class="profile-image" src="kmutt.png" alt="Your Name">
+            <div class="text-container">
+                <span>Hello!</span>
+                <h2></h2>
+                <h1>My name is Ait.I'm studying </h1>
+                <h1>at KMUTT now.</h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="header2">   
+        <a class="button" href="#about">About me</a>
+        <a class="button" href="#skills">My Skills</a>
+        <a class="button" href="#education">Education</a>
+        <a class="button" href="#contact">Contact</a>
+        <a class="button" href="https://www.youtube.com/watch?v=unHzYsjY04A" target="_blank">Special:D</a>
+    </div>
+
+    <div class="container">
+        <section id="about" class="section-border">
+            <h2>About me</h2>
+            <div class="image-container1">
+            <img class="Pro" src="Pro.jpg" alt="Your Name">
+            <p>Hello I'm Ait.When I was a kid I want to learn about computer because I'm a kid that like to play games very much so 
+                I want to create one of them myself but when I grow up I think there's many things you can do with computer and I think 
+                It's quite interesting so I chose to study computer engineering.for this course I think that it's good because this course 
+                let me learn many thing about engineer and only one thing that makem e dissapointed is it have too many thing so we can't focus 
+                on one thing too much.</p>
+            </div>
+        </section>
+        <section id="skills" class="section-border">
+            <h2>My Skills</h2>
+    <div class="carousel-container">
+        <div class="carousel">
+            <div class="skill" data-skill="C Programming">C Programming</div>
+            <div class="skill" data-skill="html and css">html and css</div>
+            <div class="skill" data-skill="C++ Programming">C++ Programming</div>
+            <div class="skill" data-skill="Basketball skill">Basketball skill</div>
+            <div class="skill" data-skill="Codeblock">Codeblock</div>
+        </div>
+        <div class="hidden-skill">
+            <div class="skill-description" id="C Programming">
+                <p>In the first year we all have to study C programming </p>
+                <p>so of course that everyone should have this skill.</p>
+            </div>
+            <div class="skill-description" id="html and css">
+                <p>To create this site I have to study html and css </p>
+                <p>and yes everyone in this class gonna have this skill too.</p>
+            </div>
+            <div class="skill-description" id="C++ Programming">
+                <p>When I was at highschool I have taken course of c++ </p>
+                <p>but I'm still not that good in it.</p>
+            </div>
+            <div class="skill-description" id="Basketball skill">
+                <p>I almost play basketball everyday when I was at highschool </p>
+                <p>and I specially good at rebounding and scroing.</p>
+            </div>
+            <div class="skill-description" id="Codeblock">
+                <p>I have done some project at the highschool and many of my</p>
+                <p>project using codeblock for the command.</p>
+            </div>
+        </div>
+        <button class="carousel-prev"><-</button>
+        <button class="carousel-next">-></button>
+    </div>
+</section>
+        <section id="education" class="section-border">
+            <h2>Education</h2>
+            <div class="education-buttons">
+                <a class="button" data-degree="Kindergarten">Kindergarten</a>
+                <a class="button" data-degree="degree2">Elementary</a>
+                <a class="button" data-degree="degree3">High School</a>
+                <a class="button" data-degree="degree4">Bachelor Degrees</a>
+            </div>
+            <div id="Kindergarten" class="hidden-degree">
+                <h3>Kindergarten</h3>
+                <img class="logo" src="logo.png" alt="Your Name">
+                <p>This is the first school that i went to study.My parents choose this school because my sister also studied in this school too.</p>
+            </div>
+            <div id="degree2" class="hidden-degree">
+                <h3>Elementary</h3>
+                <img class="logo" src="logo.png" alt="Your Name">
+                <p>My parents decide to let me stay at this school because this school isn't bad and I got many friend that decide to continue in this school until highschool.</p>
+            </div>
+            <div id="degree3" class="hidden-degree">
+                <h3>High School</h3>
+                <img class="logo" src="logo.png" alt="Your Name">
+                <p>And this is the lastest place I studied... .</p>
+            </div>
+            <div id="degree4" class="hidden-degree">
+                <h3>Bachelor Degrees</h3>
+                <img class="logo" src="logom.png" alt="Your Name">
+                <p>Now I'm studying at this place we all know that it's not easy to get in.The people here is good so I think that I make the right choice to join here.</p>
+            </div>
+        </section>
+        <section id="contact" class="section-border">
+            <h2>Contact</h2>
+            <p>Email: ait98761@gmail.com</p>
+            <p>Line: ait1919</p>
+            <p>Facebook: Wasawat Podjanasatja</p>
+        </section>
+    </div>
+
+    <script>
+        window.onload = function() {
+            window.scrollTo(0, 0);
+        };
+    </script>
+        <script>
+     const educationButtons = document.querySelectorAll('.education-buttons .button');
+const educationContents = document.querySelectorAll('.hidden-degree');
+
+educationButtons.forEach(button => {
+    button.addEventListener('click', function() {
+        const degreeId = this.getAttribute('data-degree');
+
+        // Hide all education content elements
+        educationContents.forEach(content => {
+            content.style.display = 'none';
+        });
+
+        // Show the content associated with the clicked button
+        const degreeDetails = document.getElementById(degreeId);
+        degreeDetails.style.display = 'block';
+    });
+});
+</script>
+<script>
+    const carousel = document.querySelector('.carousel');
+const prevBtn = document.querySelector('.carousel-prev');
+const nextBtn = document.querySelector('.carousel-next');
+
+let currentIndex = 0;
+const itemWidth = 220;
+
+nextBtn.addEventListener('click', () => {
+  if (currentIndex < 4) { 
+    currentIndex++;
+    updateCarousel();
+  }
+});
+
+prevBtn.addEventListener('click', () => {
+  if (currentIndex > 0) {
+    currentIndex--;
+    updateCarousel();
+  }
+});
+
+function updateCarousel() {
+  const translateX = -currentIndex * itemWidth;
+  carousel.style.transform = `translateX(${translateX}px)`;
+}
+</script>
+<script>
+const skills = document.querySelectorAll('.skill');
+    const skillDescriptions = document.querySelectorAll('.skill-description');
+    
+    skills.forEach((skill, index) => {
+      skill.addEventListener('click', () => {
+        skillDescriptions.forEach(description => {
+          description.classList.remove('active');
+        });
+        skillDescriptions[index].classList.add('active');
+      });
+    });
+    </script>
+</body>
+</html>
